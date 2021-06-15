@@ -1,13 +1,47 @@
 #include <iostream>
 #include <cmath>
 #include <cassert>
+#include <array>
+
+#include "Stack.h"
 
 using namespace std;
+
+using color = uint8_t;
+using ui = unsigned int;
+
+enum class Colors {
+    Clear = 1u,
+    White = 2u
+};
+
+void smileSurprise(const Colors c) {
+    auto smile = static_cast<color>(c);
+    int length = 50;
+    for (int i = 0; i < length; ++i) {
+        cout << smile;
+    }
+}
+
+class  RGB {
+public:
+    explicit RGB(color red = 0, color green = 0, color blue = 0, color alpha = 255) : m_red(red), m_green(green),
+                                                        m_blue(blue), m_alpha(alpha) {}
+    void print() const {
+        cout << "Red " << (int)m_red << " Green " << (int)m_green << " Blue " << (int)m_blue <<
+        " Alpha " << (int)m_alpha << endl;
+    }
+private:
+    color m_red;
+    color m_green;
+    color m_blue;
+    color m_alpha;
+};
 
 class Power {
 
 public:
-    Power(double v1 = 5.0, double v2 = 2.0) {
+    explicit Power(double v1 = 5.0, double v2 = 2.0) {
         m_first = v1;
         m_second = v2;
     }
@@ -17,7 +51,7 @@ public:
         m_first = v1;
         m_second = v2;
     }
-    void calculate() {
+    void calculate() const {
         cout << "Result = " << pow(m_first, m_second) << endl;
     }
 
@@ -26,6 +60,7 @@ private:
     double m_second;
 
 };
+
 
 
 void solution() {
@@ -41,6 +76,8 @@ void solution() {
         p.set(2.3, 10.5);
         p.calculate();
         // p.set(2.0, 0.0);
+        smileSurprise(Colors::White);
+        cout << endl;
     }
 
     /*TASK 2) Написать класс с именем RGBA, который содержит 4 переменные-члена
@@ -51,9 +88,29 @@ void solution() {
      m_green и m_alpha. Написать функцию print(), которая будет выводить значения
      переменных-членов.*/
      {
-         
-
+        RGB rgb(1);
+        rgb.print();
+        RGB rgb1(0, 1, 1, 250);
+        rgb1.print();
+        smileSurprise(Colors::White);
+        cout << endl;
      }
+
+    /*TASK 3)  Написать класс, который реализует функциональность стека. Класс Stack
+     * должен иметь:
+    private-массив целых чисел длиной 10;
+    private целочисленное значение для отслеживания длины стека;
+    public-метод с именем reset(), который будет сбрасывать длину и все значения
+     элементов на 0;
+    public-метод с именем push(), который будет добавлять значение в стек.
+    push() должен возвращать значение false, если массив уже заполнен, и true в
+    противном случае;
+    public-метод с именем pop() для вытягивания и возврата значения из стека.
+    Если в стеке нет значений, то должно выводиться предупреждение;
+    public-метод с именем print(), который будет выводить все значения стека.*/
+    {
+        Stack stack;
+    }
 
 
 }
