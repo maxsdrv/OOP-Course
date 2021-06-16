@@ -3,17 +3,19 @@
 
 #include <iostream>
 #include <array>
+#include <sstream>
 
 
 class Stack {
 public:
-   void reset();
-   bool push(const int &item);
-   bool pop();
-   void print();
+    Stack();
+    void reset();
+    bool push(const int &item);
+    bool pop();
+    void print();
 private:
     static const size_t MAX = 10;
-    std::array<int, MAX> arr;
+    std::array<int, MAX> arr{};
     int top;
 };
 

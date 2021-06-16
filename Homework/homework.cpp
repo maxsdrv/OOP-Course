@@ -11,8 +11,8 @@ using color = uint8_t;
 using ui = unsigned int;
 
 enum class Colors {
-    Clear = 1u,
-    White = 2u
+    Clear = 1u, //clear smile color
+    White = 2u //white smile color
 };
 
 void smileSurprise(const Colors c) {
@@ -110,6 +110,22 @@ void solution() {
     public-метод с именем print(), который будет выводить все значения стека.*/
     {
         Stack stack;
+        stack.reset();
+        stack.print();
+
+        stack.push(3);
+        stack.push(7);
+        stack.push(5);
+        stack.print();
+
+        stack.pop();
+        stack.print();
+
+        stack.pop();
+        stack.pop();
+        stack.print();
+        smileSurprise(Colors::White);
+        cout << endl;
     }
 
 
