@@ -31,6 +31,43 @@ public:
         cout << "Red " << (int)m_red << " Green " << (int)m_green << " Blue " << (int)m_blue <<
         " Alpha " << (int)m_alpha << endl;
     }
+    template <typename T>
+    void setColor(const T value, const std::string &c) {
+        if (c == "red") {
+            m_red = value;
+        }
+        else if (c == "green") {
+            m_green = value;
+        }
+        else if (c == "blue") {
+            m_blue = value;
+        }
+        else if (c == "alpha") {
+            m_alpha = value;
+        }
+        else
+            std::cout << "Unknown color" << std::endl;
+
+    }
+    [[nodiscard]]int getColor(const std::string &c) const {
+        if (c == "red") {
+            return m_red;
+        }
+        else if (c == "green") {
+            return m_green;
+        }
+        else if (c == "blue") {
+            return m_blue;
+        }
+        else if (c == "alpha") {
+            return m_alpha;
+        }
+        else {
+            std::cout << "Unknown color" << std::endl;
+            return -1;
+        }
+    }
+
 private:
     color m_red;
     color m_green;
@@ -92,8 +129,11 @@ void solution() {
         rgb.print();
         RGB rgb1(0, 1, 1, 250);
         rgb1.print();
-        smileSurprise(Colors::White);
         cout << endl;
+        rgb1.setColor(1, "red");
+        rgb1.print();
+        std::cout << rgb1.getColor("blue") << std::endl;
+        smileSurprise(Colors::White);
      }
 
     /*TASK 3)  Написать класс, который реализует функциональность стека. Класс Stack
