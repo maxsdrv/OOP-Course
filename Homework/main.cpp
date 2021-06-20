@@ -39,11 +39,26 @@ namespace Swap {
     }
 }
 
+class Person {
+public:
+
+private:
+    int m_age;
+    int m_gender;
+    int m_weight;
+};
+
+class Student : public Person {
+public:
+
+private:
+    int m_year;
+    int count;
+};
+
 
 int main() {
-    Employee employee("maxim", 10, "egor", 3.5);
-    std::cout << "Name for human class: " << employee.getName() << " age for human class: " << employee.getAge()
-    << " Name for employee class: " << employee.m_employer << " age for employee class: " << employee.m_wage << std::endl;
+
 
 
     return 0;
