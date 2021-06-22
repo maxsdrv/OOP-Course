@@ -70,10 +70,10 @@ namespace Task2 {
         m_color(std::move(color)) {}
 
         std::string getName() {
-            return Banana::m_name;
+            return m_name;
         }
         std::string getColor() {
-            return Banana::m_color;
+            return m_color;
         }
     private:
         std::string m_name;
