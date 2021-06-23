@@ -40,7 +40,15 @@ void testTask1() {
 namespace Task2 {
     class Fruit {
     public:
-        /*Fruit(std::string name, std::string color) : m_color(std::move(name)), m_name(std::move(color)) {}*/
+        explicit Fruit(std::string color, std::string name = "") :
+        m_name(std::move(name)), m_color(std::move(color)) {}
+
+        [[nodiscard]]std::string getName() const {
+            return m_name;
+        }
+        [[nodiscard]]std::string getColor() const {
+            return m_color;
+        }
     protected:
         std::string m_name;
         std::string m_color;
@@ -48,57 +56,40 @@ namespace Task2 {
 
     class Apple : public Fruit {
     public:
-        /*explicit Apple(std::string name, std::string color = "") : Fruit(std::move(name), std::move(color))
-        , name_apple(name), color_apple(color){}*/
-        explicit Apple(std::string color = "", std::string name = "apple") : m_name(std::move(name)),
-        m_color(std::move(color)) {}
-
-        std::string getName() {
-            return m_name;
-        }
-        std::string getColor() {
-            return m_color;
-        }
+        explicit Apple(std::string color, std::string name = "apple") :
+        Fruit(std::move(color), std::move(name)) {}
     private:
-        std::string m_name;
-        std::string m_color;
     };
 
     class Banana : public Fruit {
     public:
-        explicit Banana(std::string color = "yellow", std::string name = "banana") : m_name(std::move(name)),
-        m_color(std::move(color)) {}
-
-        std::string getName() {
-            return m_name;
-        }
-        std::string getColor() {
-            return m_color;
-        }
+        explicit Banana(std::string color = "yellow", std::string name = "banana") :
+        Fruit(std::move(color), std::move(name)) {}
     private:
-        std::string m_name;
-        std::string m_color;
     };
 
     class GrannySmith : public Apple {
     public:
-
+        explicit GrannySmith(std::string color = "green", std::string name = "Granny smith apple") :
+        Apple(std::move(color), std::move(name)) {}
     private:
     };
 
     void testTask2() {
         Apple a("red");
         Banana b;
-//        GrannySmith c;
+        GrannySmith c;
 
     std::cout << "My " << a.getName() << " is " << a.getColor() << ".\n";
     std::cout << "My " << b.getName() << " is " << b.getColor() << ".\n";
+    std::cout << "My " << c.getName() << " is " << c.getColor() << ".\n";
 
     }
 }
 
 int main() {
-//    testTask1();
+    testTask1();
+    std::cout << "************************************************" << std::endl;
     Task2::testTask2();
 
     return 0;
