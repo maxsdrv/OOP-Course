@@ -1,31 +1,29 @@
 #include <iostream>
 
-class Parent {
-protected:
-    int m_age;
-public:
-    explicit Parent(int age) : m_age(age) {}
-    virtual int getAge() {
-        return m_age;
-    }
-};
+#include "Figure.h"
 
-class Child : public Parent {
-public:
-    explicit Child(int age) : Parent(age) {}
-    int getAge() override {
-        return m_age / 2;
-    }
-};
-
-void writeAge(Parent &someChild) {
-    std::cout << "rParent age " << someChild.getAge() << "\n";
+void testTask1() {
+    Parallelogram parallelogram(7, 5);
+    parallelogram.area();
+    std::cout << parallelogram.getName() << " " << parallelogram;
+    Circle circle(2);
+    circle.area();
+    std::cout << circle.getName() << " " << circle;
+    Rectangle rectangle(10, 20);
+    rectangle.area();
+    std::cout << rectangle.getName() << " " << rectangle;
+    Square square(10);
+    square.area();
+    std:: cout << square.getName() << " " << square;
+    Rhombus rhombus(5, 6);
+    rhombus.area();
+    std::cout << rhombus.getName() << " " << rhombus;
 }
+
+
 int main() {
 
-    Child child(40);
-    Parent &rParent = child;
-    writeAge(rParent);
+    testTask1();
 
     return 0;
 }
