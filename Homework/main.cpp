@@ -1,6 +1,17 @@
 #include <iostream>
 
 #include "Figure.h"
+#include "Car.h"
+
+
+void format() {
+    uint8_t smile = 35;
+    int length = 50;
+    for (int i = 0; i < length; ++i) {
+        std::cout << smile;
+    }
+    std::cout << "<NEXT TASK>" << std::endl;
+}
 
 void testTask1() {
     Parallelogram parallelogram(7, 5);
@@ -20,10 +31,23 @@ void testTask1() {
     std::cout << rhombus.getName() << " " << rhombus;
 }
 
+void testTask2() {
+    Car car("opel", "kaddet");
+    PassengerCar passengerCar("audi", "S8 SLine");
+    Bus bus("mersedes-benz", "tourismo");
+    Minivan minivan("toyota", "sienna");
+    std::cout << car << std::endl;
+    std::cout << passengerCar << std::endl;
+    std::cout << bus << std::endl;
+    std::cout << minivan << std::endl;
+}
 
 int main() {
 
     testTask1();
+    format();
+    testTask2();
+    format();
 
     return 0;
 }
