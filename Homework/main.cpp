@@ -1,31 +1,53 @@
 #include <iostream>
 
-class Parent {
-protected:
-    int m_age;
-public:
-    explicit Parent(int age) : m_age(age) {}
-    virtual int getAge() {
-        return m_age;
-    }
-};
+#include "Figure.h"
+#include "Car.h"
 
-class Child : public Parent {
-public:
-    explicit Child(int age) : Parent(age) {}
-    int getAge() override {
-        return m_age / 2;
-    }
-};
 
-void writeAge(Parent &someChild) {
-    std::cout << "rParent age " << someChild.getAge() << "\n";
+void format() {
+    uint8_t smile = 35;
+    int length = 50;
+    for (int i = 0; i < length; ++i) {
+        std::cout << smile;
+    }
+    std::cout << "<NEXT TASK>" << std::endl;
 }
+
+void testTask1() {
+    Parallelogram parallelogram(7, 5);
+    parallelogram.area();
+    std::cout << parallelogram.getName() << " " << parallelogram;
+    Circle circle(2);
+    circle.area();
+    std::cout << circle.getName() << " " << circle;
+    Rectangle rectangle(10, 20);
+    rectangle.area();
+    std::cout << rectangle.getName() << " " << rectangle;
+    Square square(10);
+    square.area();
+    std:: cout << square.getName() << " " << square;
+    Rhombus rhombus(5, 6);
+    rhombus.area();
+    std::cout << rhombus.getName() << " " << rhombus;
+}
+
+void testTask2() {
+    Car car("opel", "kaddet");
+    PassengerCar passengerCar("audi", "S8 SLine");
+    Bus bus("mersedes-benz", "tourismo");
+    Minivan minivan("toyota", "sienna");
+    std::cout << car << std::endl;
+    std::cout << passengerCar << std::endl;
+    std::cout << bus << std::endl;
+    std::cout << minivan << std::endl;
+}
+
 int main() {
 
-    Child child(40);
-    Parent &rParent = child;
-    writeAge(rParent);
+    testTask1();
+    format();
+    testTask2();
+    format();
 
     return 0;
 }
