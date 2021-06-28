@@ -2,6 +2,7 @@
 
 #include "Figure.h"
 #include "Car.h"
+#include "Fraction.h"
 
 
 void format() {
@@ -42,12 +43,27 @@ void testTask2() {
     std::cout << minivan << std::endl;
 }
 
+void testTask3() {
+    try {
+        Fraction a1(29, 30);
+        Fraction a2(44, 45);
+        std:: cout << a1 + a2 << std::endl;
+
+    }
+    catch(std::exception& ex) {
+        std::cout << "Something went wrong: " << ex.what() << std::endl;
+    }
+}
+
 int main() {
 
-    testTask1();
+    /*testTask1();
     format();
     testTask2();
-    format();
+    format();*/
+    testTask3();
+
+
 
     return 0;
 }
