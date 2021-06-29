@@ -3,6 +3,7 @@
 #include "Figure.h"
 #include "Car.h"
 #include "Fraction.h"
+#include "Card.h"
 
 
 void format() {
@@ -12,6 +13,26 @@ void format() {
         std::cout << smile;
     }
     std::cout << "<NEXT TASK>" << std::endl;
+}
+
+void testTask1();
+void testTask2();
+void testTask3();
+void testTask4();
+
+int main() {
+
+    /*testTask1();
+    format();
+    testTask2();
+    format();
+    testTask3();*/
+    format();
+    testTask4();
+
+
+
+    return 0;
 }
 
 void testTask1() {
@@ -48,6 +69,39 @@ void testTask3() {
         Fraction a1(29, 30);
         Fraction a2(44, 45);
         std:: cout << a1 + a2 << std::endl;
+        Fraction a3(3, 10);
+        Fraction a4(1, 6);
+        std::cout << a3 - a4 << std::endl;
+        Fraction a5(2, 5);
+        Fraction a6(3, 4);
+        std::cout << a5 * a6 << std::endl;
+        Fraction a7(4, 7);
+        Fraction a8(2, 5);
+        std::cout << a7 * a8 << std::endl;
+        const Fraction a9(8, 9);
+        std::cout << -a9.getNumerator() << " " << -a9.getDenominator() << std::endl;
+        Fraction a10(10, 15);
+        Fraction a11(11, 16);
+        if (a10 == a11) {
+            std::cout << "Fractions is equal" << std::endl;
+        }
+        if (a10 != a11) {
+            std::cout << "Fraction isn't equal" << std::endl;
+        }
+        Fraction fraction1(13, 15);
+        Fraction fraction2(20, 27);
+        if (fraction1 > fraction2) {
+            std::cout << "fraction1 > fraction2" << std::endl;
+        }
+        if (fraction1 >= fraction2) {
+            std::cout << "fraction1 >= fraction2" << std::endl;
+        }
+        if (fraction1 < fraction2) {
+            std::cout << "fraction1 < fraction2" << std::endl;
+        }
+        if (fraction1 <= fraction2) {
+            std::cout << "fraction1 <= fraction2" << std::endl;
+        }
 
     }
     catch(std::exception& ex) {
@@ -55,15 +109,11 @@ void testTask3() {
     }
 }
 
-int main() {
+void testTask4() {
+    Card card{};
 
-    /*testTask1();
-    format();
-    testTask2();
-    format();*/
-    testTask3();
-
-
-
-    return 0;
 }
+
+
+
+
