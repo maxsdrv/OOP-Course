@@ -5,16 +5,21 @@
 
 class Card {
 public:
-    enum Suit{
-        Jack = 2,
-        Queen = 3,
-        King = 4,
-        Ace = 1
+    enum suit {
+        SPADES,
+        HEARTS,
+        DIAMONDS,
+        CLUBS
+    };
+    enum rank { ACE = 1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN,
+                JACK, QUEEN, KING
     };
     void Flip();
     int GetValue();
 private:
-    bool position;
+    suit m_Suit;
+    rank m_Rank;
+    bool m_position;
 };
 
 
