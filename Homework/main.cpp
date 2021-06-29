@@ -22,11 +22,11 @@ void testTask4();
 
 int main() {
 
-    /*testTask1();
+    testTask1();
     format();
     testTask2();
     format();
-    testTask3();*/
+    testTask3();
     format();
     testTask4();
 
@@ -111,7 +111,7 @@ void testTask3() {
 
 void testTask4() {
     Card card{};
-
+    std::cout << card;
 }
 
 
