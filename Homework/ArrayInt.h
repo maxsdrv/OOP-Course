@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <cassert>
-#include <cstring>
+#include <algorithm>
 
 class ArrayInt {
 private:
@@ -44,10 +44,7 @@ public:
     void pop_back();
     void pop_front();
 
-    void sort(int begin, int end);
-    int partition(int *arr, int begin, int end);
-    template <typename T>
-    void swap(T a, T b);
+    void sort();
 };
 
 void ArrayInt::resize(int newLength) {
@@ -133,20 +130,8 @@ void ArrayInt::pop_front() {
     m_length--;
 }
 
-
-void ArrayInt::sort(int begin, int end) {
-
-}
-
-template<typename T>
-void ArrayInt::swap(T a, T b) {
-    T temp = std::move(a);
-    a = std::move(b);
-    b = std::move(temp);
-}
-
-int ArrayInt::partition(int *arr, int begin, int end) {
-
+void ArrayInt::sort() {
+    std::sort(m_data, m_data + m_length);
 }
 
 
